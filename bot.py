@@ -29,10 +29,10 @@ def send_telegram_message(message):
     try:
         requests.post(url, json=payload, timeout=10)
     except Exception as e:
-        print(f"Chyba při odesílání: {e}")
+        print(f"Message sending fail {e}")
 
 def main():
-    print("Generuji HTML fancy krypto report...")
+    print("Generating a crypto report")
     data = get_crypto_data()
     
     if data:
@@ -64,13 +64,13 @@ def main():
             f"• Cena: <code>${sol_price:,.2f} USD</code>\n"
             f"• 24h: {format_change(sol_change)}\n\n"
             "<code>━━━━━━━━━━━━━━━━━━━━━━━</code>\n"
-            "<i>🤖 Auto-update via GitHub Actions</i>"
+            "<i>🤖 Updated message every 15 minutes</i>"
         )
         
         send_telegram_message(message)
-        print("Fancy HTML report úspěšně odeslán!")
+        print("Report sent succesfully")
     else:
-        print("Nepodařilo se získat data z API.")
+        print("Failed to get API acess.")
 
 if __name__ == "__main__":
     main()
