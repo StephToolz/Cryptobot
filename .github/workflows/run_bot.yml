@@ -1,0 +1,29 @@
+name: Crypto Bot Scheduler
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # Spustí se každých 15 minut
+  workflow_dispatch: # Umožní ti spustit bota ručně tlačítkem
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stáhnout kód z repozitáře
+        uses: actions/checkout@v4
+
+      - name: Nastavit Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Nainstalovat závislosti
+        run: |
+          pip install -r requirements.txt
+
+      - name: Spustit krypto bota
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python bot.py
