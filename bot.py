@@ -2,9 +2,9 @@ import os
 import requests
 
 # Načtení tokenu z proměnných prostředí (bezpečně)
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TELEGRAM_TOKEN = os.getenv("8881136619:AAG7JPMIL6ZG1g1Gtko9sH0GP00hcf-icqk")
 # Příklad použití ID chatu, kam má zpráva dorazit (také může být v env proměnných)
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+CHAT_ID = os.getenv("7260268357")
 
 def get_crypto_price():
     """Získá aktuální cenu BTC z veřejného CoinGecko API"""
