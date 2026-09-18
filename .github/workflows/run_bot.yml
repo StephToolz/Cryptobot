@@ -2,7 +2,7 @@ name: Crypto Bot Scheduler
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Spustí se každých 15 minut
+    - cron: '*/18 * * * *' # Spustí se každých 15 minut
   workflow_dispatch: # Umožní ti spustit bota ručně tlačítkem
 
 jobs:
